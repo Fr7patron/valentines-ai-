@@ -10,9 +10,14 @@
             color: #d63384;
             text-align: center;
             font-family: 'Arial', sans-serif;
+            background-image: url('https://i.imgur.com/DYjRbgE.png'); /* Cupid Image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top center;
         }
         h1 {
             font-size: 36px;
+            margin-top: 120px;
         }
         .container {
             max-width: 600px;
@@ -21,6 +26,8 @@
             background: white;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
         }
         button {
             background-color: #d63384;
@@ -37,9 +44,18 @@
         .filled {
             color: red;
         }
-        input {
+        input, textarea {
             padding: 10px;
             margin: 5px;
+            width: 90%;
+        }
+        a {
+            color: #d63384;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -62,9 +78,10 @@
     <div class="heart" id="heart">❤️</div>
 
     <h2>Gift Recommendations</h2>
-    <p>💝 <a href="https://www.amazon.com/dp/B07XYW76L7" target="_blank">Rose Bear</a></p>
-    <p>🌹 <a href="https://www.1800flowers.com" target="_blank">Red Roses</a></p>
+    <p>🧸 <a href="https://www.amazon.com/dp/B07XYW76L7" target="_blank">Rose Bear</a></p>
+    <p>🌹 <a href="https://www.1800flowers.com/red-roses" target="_blank">Red Roses</a></p>
     <p>💎 <a href="https://www.amazon.com/dp/B08P3K6W9H" target="_blank">Necklace with Initial</a></p>
+    <p>💝 <a href="https://www.lovepop.com/collections/valentines-day" target="_blank">Valentine's Pop-Up Cards</a></p>
 
     <h2>Romantic Date Ideas</h2>
     <input type="text" id="city" placeholder="Enter a city">
@@ -95,22 +112,15 @@ function calculateLove() {
     heart.innerHTML = filledHeart + emptyHeart;
 }
 
-async function findDateIdeas() {
+function findDateIdeas() {
     let city = document.getElementById("city").value;
     if (!city) {
         document.getElementById("dateIdeas").innerText = "Please enter a city.";
         return;
     }
 
-    document.getElementById("dateIdeas").innerHTML = "Searching romantic ideas for " + city + "...";
-
-    try {
-        let response = await fetch(`https://www.google.com/search?q=romantic+date+ideas+in+${city}`);
-        document.getElementById("dateIdeas").innerHTML = 
-            `💑 <a href="https://www.google.com/search?q=romantic+date+ideas+in+${city}" target="_blank">See Date Ideas</a>`;
-    } catch (error) {
-        document.getElementById("dateIdeas").innerText = "Could not fetch date ideas. Try again later.";
-    }
+    document.getElementById("dateIdeas").innerHTML = 
+        `💑 <a href="https://www.google.com/search?q=romantic+date+ideas+in+${encodeURIComponent(city)}" target="_blank">See Date Ideas in ${city}</a>`;
 }
 </script>
 
