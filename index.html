@@ -10,14 +10,10 @@
             color: #d63384;
             text-align: center;
             font-family: 'Arial', sans-serif;
-            background-image: url('https://i.imgur.com/DYjRbgE.png'); /* Cupid Image */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: top center;
         }
         h1 {
             font-size: 36px;
-            margin-top: 120px;
+            margin-top: 40px;
         }
         .container {
             max-width: 600px;
@@ -41,9 +37,6 @@
             font-size: 50px;
             color: lightgray;
         }
-        .filled {
-            color: red;
-        }
         input, textarea {
             padding: 10px;
             margin: 5px;
@@ -66,63 +59,4 @@
 <div class="container">
     <h2>Love Letter Generator</h2>
     <input type="text" id="loverName" placeholder="Enter their name">
-    <textarea id="details" placeholder="Describe them & your love story"></textarea>
-    <button onclick="generateLoveLetter()">Generate</button>
-    <p id="loveLetter"></p>
-
-    <h2>Love Compatibility Test</h2>
-    <input type="text" id="yourName" placeholder="Your Name">
-    <input type="text" id="crushName" placeholder="Crush's Name">
-    <button onclick="calculateLove()">Check</button>
-    <p id="loveScore"></p>
-    <div class="heart" id="heart">❤️</div>
-
-    <h2>Gift Recommendations</h2>
-    <p>🧸 <a href="https://www.amazon.com/dp/B07XYW76L7" target="_blank">Rose Bear</a></p>
-    <p>🌹 <a href="https://www.1800flowers.com/red-roses" target="_blank">Red Roses</a></p>
-    <p>💎 <a href="https://www.amazon.com/dp/B08P3K6W9H" target="_blank">Necklace with Initial</a></p>
-    <p>💝 <a href="https://www.lovepop.com/collections/valentines-day" target="_blank">Valentine's Pop-Up Cards</a></p>
-
-    <h2>Romantic Date Ideas</h2>
-    <input type="text" id="city" placeholder="Enter a city">
-    <button onclick="findDateIdeas()">Find Ideas</button>
-    <p id="dateIdeas"></p>
-</div>
-
-<script>
-function generateLoveLetter() {
-    let name = document.getElementById("loverName").value;
-    let details = document.getElementById("details").value;
-    if (name && details) {
-        document.getElementById("loveLetter").innerText = "Dear " + name + ",\n\n" +
-            "From the moment I met you, my world changed forever. " + details + 
-            " You are my heart, my happiness, and my everything.\n\nForever Yours,";
-    } else {
-        document.getElementById("loveLetter").innerText = "Please enter details to generate a love letter.";
-    }
-}
-
-function calculateLove() {
-    let score = Math.floor(Math.random() * 100) + 1;
-    let heart = document.getElementById("heart");
-    document.getElementById("loveScore").innerText = "Your love compatibility is " + score + "% 💖";
-    
-    let filledHeart = "❤️".repeat(Math.ceil(score / 10));
-    let emptyHeart = "🖤".repeat(10 - Math.ceil(score / 10));
-    heart.innerHTML = filledHeart + emptyHeart;
-}
-
-function findDateIdeas() {
-    let city = document.getElementById("city").value;
-    if (!city) {
-        document.getElementById("dateIdeas").innerText = "Please enter a city.";
-        return;
-    }
-
-    document.getElementById("dateIdeas").innerHTML = 
-        `💑 <a href="https://www.google.com/search?q=romantic+date+ideas+in+${encodeURIComponent(city)}" target="_blank">See Date Ideas in ${city}</a>`;
-}
-</script>
-
-</body>
-</html>
+    <textarea id="details" placeholder="De
