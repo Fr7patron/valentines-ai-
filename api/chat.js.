@@ -7,8 +7,7 @@ export default async function handler(req, res) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": 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
-        },
+            "Authorization": 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
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
             messages: [{ role: "system", content: "You are a romantic Valentine's Day assistant." }, { role: "user", content: message }]
